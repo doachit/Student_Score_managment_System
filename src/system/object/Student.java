@@ -10,20 +10,25 @@ public final class Student {
 	private float score3;
 	private float scoreAverage;
 	
-	public void setStudentInfo(String id,String name,String sex,String academy)
+	public void setStudentInfo(
+								String id,
+								String name,
+								String sex,
+								String academy,
+								float score1,
+								float score2,
+								float score3
+								)
 	{
 		this.id = id;
 		this.name = name;
 		this.sex = sex;
 		this.academy = academy;
-	}
-	
-	public void setStudentScore(float score1,float score2,float score3)
-	{
 		this.score1 = score1;
 		this.score2 = score2;
 		this.score3 = score3;
 	}
+	
 	
 	public String getId() {
 		return id;

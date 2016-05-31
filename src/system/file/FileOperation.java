@@ -19,7 +19,6 @@ public class FileOperation {
 		/*
 		 * 总共有7行
 		 */
-		int perLine = 0 ;
 		String arr[] = null;
 
 		try {
@@ -50,7 +49,6 @@ public class FileOperation {
 			reader.close();
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
