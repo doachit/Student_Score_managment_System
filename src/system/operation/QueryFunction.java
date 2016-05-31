@@ -8,6 +8,7 @@ import system.file.FileOperation;
 
 public final class QueryFunction {
 	public static int num = FileOperation.getStudentNum();
+	private static String matchEnd = "-?1?";
 	/*
 	 * 按照姓名进行查询
 	 */
@@ -105,11 +106,26 @@ public final class QueryFunction {
 		int count;
 		String queryAcademy;
 		ArrayList<Integer> studentId = new ArrayList<Integer>();
+		String matchString = "[A-G]";
 		Scanner input = new Scanner(System.in);
-		do
+		while(true)
 		{
-			System.out.println("分别有 A-G 7个学院，请输入学院名称进行查询：");
-			queryAcademy = input.next();
+			while(true)
+			{
+				System.out.println("分别有 A-G 7个学院，请输入学院名称进行查询：");
+				queryAcademy = input.next();
+				if(queryAcademy.matches(matchString)) break;
+				else {
+					if(queryAcademy.matches(matchEnd)) break;
+					System.out.println("没有该学院，请重新输入！");
+				}
+			};
+			
+			if(queryAcademy.equals("-1"))
+			{
+				System.out.println("退出该模块..........\n");
+				break;
+			}
 			
 			for (count = 0; count < num; count++) 
 			{
@@ -136,7 +152,7 @@ public final class QueryFunction {
 			}
 			
 			
-		}while(true);
+		}
 	}
 	
 	public static void showOneStudentInfo(int num)
