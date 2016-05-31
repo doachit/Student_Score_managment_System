@@ -13,7 +13,6 @@ public final class QueryFunction {
 	 */
 	public static void queryByName()
 	{
-		//int num = FileOperation.getStudentNum();
 		int count;
 		String queryName;
 		Scanner input = new Scanner(System.in);
@@ -53,11 +52,29 @@ public final class QueryFunction {
 		int count;
 		String queryId;
 		Scanner input = new Scanner(System.in);
-		do
-		{
-			System.out.println("学号的范围在1001-1050之间，请输入学号进行查询：");
-			queryId = input.next();
-			
+		String matchNum = "-?[0-9]+";
+		
+		while(true)
+		{			
+			while(true)
+			{
+				System.out.println("请输入学号进行查询：");
+				queryId = input.nextLine();
+				
+				if(queryId.matches(matchNum))
+				{
+					break;				
+				}
+				else 
+				{
+					System.out.println("输入格式错误，请重新输入：\n");
+				}
+			}
+			if(queryId.equals("-1"))
+			{
+				System.out.println("退出该模块.........\n");
+				break;
+			}
 			for (count = 0; count < num; count++) 
 			{
 				if(queryId.equals(FileOperation.student[count].getId()))
@@ -78,7 +95,7 @@ public final class QueryFunction {
 				System.out.println("没有找到相关记录！\n\n\n");
 			}
 
-		}while(true);
+		}
 	}
 	/*
 	 * 按照学院进行查询

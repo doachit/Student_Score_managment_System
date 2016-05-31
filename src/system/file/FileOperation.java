@@ -20,6 +20,7 @@ public class FileOperation {
 		 * 总共有7行
 		 */
 		String arr[] = null;
+		studentNum = 0;
 
 		try {
 		BufferedReader reader = new BufferedReader(new FileReader("data.txt"));

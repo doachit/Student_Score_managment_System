@@ -48,7 +48,7 @@ public final class Statistic {
 		return -1;//error
 	}
 	/*
-	 * 生成*
+	 * 生成统计图*
 	 */
 	public static String putGraph(int num)
 	{
