@@ -8,7 +8,7 @@ import system.file.FileOperation;
 
 public final class QueryFunction {
 	public static int num = FileOperation.getStudentNum();
-	private static String matchEnd = "-?1?";
+	private static String matchEnd = "-1";
 	/*
 	 * 按照姓名进行查询
 	 */
@@ -16,33 +16,57 @@ public final class QueryFunction {
 	{
 		int count;
 		String queryName;
+		ArrayList<Integer> nameNum = new ArrayList<Integer>();
 		Scanner input = new Scanner(System.in);
-		do
+		String matchString = "[a-z]*";
+		while(true)
 		{
-			System.out.println("请输入学生姓名进行查询：");
-			queryName = input.next();
+			while(true)
+			{
+				System.out.println("请输入学生姓名进行查询：(输入-1退出) ");
+				queryName = input.nextLine();
+				
+				if(queryName.matches(matchString)) break;
+				else
+				{
+					if(queryName.matches(matchEnd)) break;
+				}
+
+			};
+			
+			if(queryName.equals("-1"))
+			{
+				System.out.println("退出该模块..............\n");
+				break;
+			}
 			
 			for (count = 0; count < num; count++) 
 			{
 				if(queryName.equals(FileOperation.student[count].getName()))
 				{
-					break;
+					nameNum.add(new Integer(count));
 				}
 			}
-			if(count != num)
+
+			if(nameNum.size() != 0)
 			{
-				System.out.println("找到相关记录，如下：");
+				System.out.println("找到"+ nameNum.size() +"条相关记录，如下：");
 				System.out.println("*********************************************");
 				System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
-				showOneStudentInfo(count);
+				for(int i = 0; i < nameNum.size(); i++)
+				{
+					showOneStudentInfo(nameNum.get(i).intValue());
+				}
+
 				System.out.println("\n\n\n");
+				nameNum.clear();
 			}
 			else
 			{
 				System.out.println("没有找到相关记录！\n\n\n");
 			}
 
-		}while(true);
+		}
 	}
 	
 	/*
@@ -59,7 +83,7 @@ public final class QueryFunction {
 		{			
 			while(true)
 			{
-				System.out.println("请输入学号进行查询：");
+				System.out.println("请输入学号进行查询：(输入-1退出) ");
 				queryId = input.nextLine();
 				
 				if(queryId.matches(matchNum))
@@ -112,10 +136,11 @@ public final class QueryFunction {
 		{
 			while(true)
 			{
-				System.out.println("分别有 A-G 7个学院，请输入学院名称进行查询：");
+				System.out.println("分别有 A-G 7个学院，请输入学院名称进行查询：(输入-1退出)");
 				queryAcademy = input.next();
 				if(queryAcademy.matches(matchString)) break;
-				else {
+				else 
+				{
 					if(queryAcademy.matches(matchEnd)) break;
 					System.out.println("没有该学院，请重新输入！");
 				}
