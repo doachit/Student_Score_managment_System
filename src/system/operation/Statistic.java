@@ -11,7 +11,7 @@ public final class Statistic {
 	public static void statisticScore()
 	{
 		
-		System.out.println("统计平均成绩情况如下：");
+		System.out.println("\n\n统计平均成绩情况如下：");
 		int statistic[] = {0,0,0,0,0};
 		int count;
 		for(int i = 0; i < FileOperation.getStudentNum(); i++)
