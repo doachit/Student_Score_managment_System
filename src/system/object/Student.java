@@ -1,5 +1,7 @@
 package system.object;
 
+import system.file.FileOperation;
+
 public final class Student {
 	private String id;
 	private String name;
@@ -9,6 +11,31 @@ public final class Student {
 	private float score2;
 	private float score3;
 	private float scoreAverage;
+	
+	public Student()
+	{
+		
+	}
+	
+	public Student(
+			String id,
+			String name,
+			String sex,
+			String academy,
+			float score1,
+			float score2,
+			float score3
+			)
+	{
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.academy = academy;
+		this.score1 = score1;
+		this.score2 = score2;
+		this.score3 = score3;
+		this.scoreAverage = Float.parseFloat(String.format("%.2f", (this.score1 + this.score2 + this.score3) / 3.0));
+	}
 	
 	public void setStudentInfo(
 								String id,
@@ -27,6 +54,7 @@ public final class Student {
 		this.score1 = score1;
 		this.score2 = score2;
 		this.score3 = score3;
+		this.scoreAverage = Float.parseFloat(String.format("%.2f", (this.score1 + this.score2 + this.score3) / 3.0));
 	}
 	
 	
@@ -90,14 +118,26 @@ public final class Student {
 		return scoreAverage;
 	}
 
-	public void setScoreAverage(float scoreAverage) {
-		this.scoreAverage = scoreAverage;
-	}
 	public void setScoreAverage()
 	{
 		this.scoreAverage = Float.parseFloat(String.format("%.2f", (this.score1 + this.score2 + this.score3) / 3.0));
 	}
-
+	/*
+	 * 输出学生的信息
+	 */
+	public void getOneStudentInfo()
+	{
+		System.out.println("\t" +
+							this.id 		+ "\t" +
+							this.name  		+ "\t" +
+							this.sex 		+ "\t" +
+							this.academy 	+ "\t" +
+							this.score1 	+ "\t" +
+							this.score2		+ "\t" +
+							this.score3 	+ "\t" +
+							this.scoreAverage 
+							);
+	}
 	
 	
 	

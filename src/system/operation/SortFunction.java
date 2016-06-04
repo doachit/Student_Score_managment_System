@@ -26,8 +26,8 @@ public final class SortFunction {
 		{
 			for(int j = 0; j < arrayList.length - 1 - i; j++)
 			{
-				if(FileOperation.student[arrayList[j]].getScoreAverage() > 
-				   FileOperation.student[arrayList[j+1]].getScoreAverage())
+				if(FileOperation.getStudent(arrayList[j]).getScoreAverage() > 
+				   FileOperation.getStudent(arrayList[j + 1]).getScoreAverage())
 				{
 					temp = arrayList[j];
 					arrayList[j] = arrayList[j + 1];
@@ -38,7 +38,7 @@ public final class SortFunction {
 		System.out.println("\t**************************************************************");
 		System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
 		for(int i = arrayList.length - 1; i >= 0 ; i--)
-			QueryFunction.showOneStudentInfo(arrayList[i]);
+			QueryFunction.showOneStudentInfo(FileOperation.getStudent(arrayList[i]));
 		
 		System.out.println("\n\n按下回车键退出..........\n\n");
 		new Scanner(System.in).nextLine();
@@ -66,7 +66,7 @@ public final class SortFunction {
 		{
 			for(int j = 0; j < arrayList.length - 1 - i; j++)
 			{
-				if(FileOperation.student[arrayList[j]].getName().compareTo(FileOperation.student[arrayList[j+1]].getName()) >= 0)
+				if(FileOperation.getStudent(arrayList[j]).getName().compareTo(FileOperation.getStudent(arrayList[j+1]).getName()) >= 0)
 				{
 					temp = arrayList[j];
 					arrayList[j] = arrayList[j + 1];
@@ -77,7 +77,7 @@ public final class SortFunction {
 		System.out.println("\t**************************************************************");
 		System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
 		for(int i = 0; i < arrayList.length ; i++)
-			QueryFunction.showOneStudentInfo(arrayList[i]);
+			QueryFunction.showOneStudentInfo(FileOperation.getStudent(arrayList[i]));
 		
 		System.out.println("\n\n按下回车键退出..........\n\n");
 		new Scanner(System.in).nextLine();

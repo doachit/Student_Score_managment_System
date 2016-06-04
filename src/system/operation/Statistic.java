@@ -16,7 +16,7 @@ public final class Statistic {
 		int count;
 		for(int i = 0; i < FileOperation.getStudentNum(); i++)
 		{
-			count = statisticNum(FileOperation.student[i].getScoreAverage());
+			count = statisticNum(FileOperation.getStudent(i).getScoreAverage());
 			if(count != -1)
 			{
 				statistic[count]++;

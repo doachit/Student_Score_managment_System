@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import system.file.FileOperation;
+import system.object.Student;
 
 public final class QueryFunction {
 	public static int num = FileOperation.getStudentNum();
@@ -42,7 +43,7 @@ public final class QueryFunction {
 			
 			for (count = 0; count < num; count++) 
 			{
-				if(queryName.equals(FileOperation.student[count].getName()))
+				if(queryName.equals(FileOperation.getStudent(count).getName()))
 				{
 					nameNum.add(new Integer(count));
 				}
@@ -55,7 +56,7 @@ public final class QueryFunction {
 				System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
 				for(int i = 0; i < nameNum.size(); i++)
 				{
-					showOneStudentInfo(nameNum.get(i).intValue());
+					showOneStudentInfo(FileOperation.getStudent(nameNum.get(i).intValue()));
 				}
 
 				System.out.println("\n\n\n");
@@ -102,7 +103,7 @@ public final class QueryFunction {
 			}
 			for (count = 0; count < num; count++) 
 			{
-				if(queryId.equals(FileOperation.student[count].getId()))
+				if(queryId.equals(FileOperation.getStudent(count).getId()))
 				{
 					break;
 				}
@@ -112,7 +113,7 @@ public final class QueryFunction {
 				System.out.println("\n\n找到相关记录，如下：");
 				System.out.println("\t**************************************************************");
 				System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
-				showOneStudentInfo(count);
+				showOneStudentInfo(FileOperation.getStudent(count));
 				System.out.println("\n\n\n");
 			}
 			else
@@ -154,7 +155,7 @@ public final class QueryFunction {
 			
 			for (count = 0; count < num; count++) 
 			{
-				if(queryAcademy.equals(FileOperation.student[count].getAcademy()))
+				if(queryAcademy.equals(FileOperation.getStudent(count).getAcademy()))
 				{
 					studentId.add(new Integer(count));
 				}
@@ -170,7 +171,7 @@ public final class QueryFunction {
 				System.out.println("\t学号\t姓名\t性别\t学院\t科目一\t科目二\t科目三\t平均分");
 				for(int i = 0; i < studentId.size(); i++)
 				{
-					showOneStudentInfo(studentId.get(i).intValue());
+					showOneStudentInfo(FileOperation.getStudent(studentId.get(i).intValue()));
 				}
 				studentId.clear();
 				System.out.println("\n\n\n");
@@ -180,24 +181,14 @@ public final class QueryFunction {
 		}
 	}
 	
-	public static void showOneStudentInfo(int num)
+	public static void showOneStudentInfo(Student student)
 	{
-		System.out.println("\t" +
-				FileOperation.student[num].getId() 		+ "\t" +
-				FileOperation.student[num].getName()  	+ "\t" +
-				FileOperation.student[num].getSex() 		+ "\t" +
-				FileOperation.student[num].getAcademy() 	+ "\t" +
-				FileOperation.student[num].getScore1() 	+ "\t" +
-				FileOperation.student[num].getScore2()	+ "\t" +
-				FileOperation.student[num].getScore3() 	+ "\t" +
-				FileOperation.student[num].getScoreAverage() 
-							);
-		
+		student.getOneStudentInfo();
 	}
 	public static void showAllStudentInfo()
 	{
 		for (int i = 0; i < FileOperation.getStudentNum(); i++) {
-			showOneStudentInfo(i);
+			showOneStudentInfo(FileOperation.getStudent(i));
 		}
 	}
 
