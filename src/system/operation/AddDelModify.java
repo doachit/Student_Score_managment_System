@@ -108,13 +108,13 @@ public final class AddDelModify {
 		String score3;
 		String quiet;
 		int modifyIndex = 0;
-		Scanner add = new Scanner(System.in);
+		Scanner modify = new Scanner(System.in);
 		while(true)
 		{
 			System.out.println("请输入待修改学生的学号:\n\n");
 			while(true)
 			{
-				id = add.nextLine();
+				id = modify.nextLine();
 				for(int i = 0; i < FileOperation.getStudentNum(); i++)
 				{
 					if(id.equals(FileOperation.getStudent(i).getId()))
@@ -135,17 +135,17 @@ public final class AddDelModify {
 			}
 			
 			System.out.println("请输入姓名:\n\n");
-			name = add.nextLine();
+			name = modify.nextLine();
 			System.out.println("请输入性别:\n\n");
-			sex = add.nextLine();
+			sex = modify.nextLine();
 			System.out.println("请输入学院:\n\n");
-			academy = add.nextLine();
+			academy = modify.nextLine();
 			System.out.println("请输入科目一分数:\n\n");
-			score1 = add.nextLine();
+			score1 = modify.nextLine();
 			System.out.println("请输入科目一分数:\n\n");
-			score2 = add.nextLine();
+			score2 = modify.nextLine();
 			System.out.println("请输入科目一分数:\n\n");
-			score3 = add.nextLine();
+			score3 = modify.nextLine();
 			
 			FileOperation.studentArray.get(modifyIndex).setStudentInfo(
 					id,
@@ -159,7 +159,7 @@ public final class AddDelModify {
 			FileOperation.isModify = true;
 			
 			System.out.println("退出？（Y/N）");
-			quiet = add.nextLine();
+			quiet = modify.nextLine();
 			if(quiet.equals("y") || quiet.equals("Y")) break;
 		};
 	}
