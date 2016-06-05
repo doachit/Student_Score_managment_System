@@ -185,6 +185,7 @@ public final class QueryFunction {
 	{
 		student.getOneStudentInfo();
 	}
+	
 	public static void showAllStudentInfo()
 	{
 		for (int i = 0; i < FileOperation.getStudentNum(); i++) {

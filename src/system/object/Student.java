@@ -122,6 +122,7 @@ public final class Student {
 	{
 		this.scoreAverage = Float.parseFloat(String.format("%.2f", (this.score1 + this.score2 + this.score3) / 3.0));
 	}
+	
 	/*
 	 * 输出学生的信息
 	 */
@@ -137,6 +138,20 @@ public final class Student {
 							this.score3 	+ "\t" +
 							this.scoreAverage 
 							);
+	}
+	
+	public  String writeOneStudentInfo()
+	{
+
+		String studentInfo = 
+							this.id 		+ "\t" +
+							this.name  		+ "\t" +
+							this.sex 		+ "\t" +
+							this.academy 	+ "\t" +
+							this.score1 	+ "\t" +
+							this.score2		+ "\t" +
+							this.score3		+ "\n"; 	
+		return studentInfo;
 	}
 	
 	
